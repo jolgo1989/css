@@ -1,0 +1,72 @@
+/*
+    
+    Acepta 4 posibles valores
+        text-align:left; -> Alinea el contenido a la izquierda
+        text-align:right; -> Alinea el contenido a la derecha
+        text-align:center; -> Alinea el contenido al centro
+        text-align:justify; -> Alinea el contenido de forma justificada. No es recomendable usarlo.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+  color: #fff;
+}
+/* Text-align es la propiedad que nos permite alinear horizontalmente el contenido de un elemento de bloque siempre que el contenido NO TENGA ANCHO DECLARADO */
+
+/* text-align:left(Viene por defecto) -> Alinea el contenido a la izquierda */
+.text {
+  text-align: left;
+}
+/* text-align:right; -> Alinea el contenido a la derecha */
+.text1 {
+  text-align: right;
+}
+/* text-align:center; -> Alinea el contenido al centro */
+.text2 {
+  text-align: center;
+}
+/* !text-align:justify; -> Alinea el contenido de forma justificada. No es recomendable usarlo. */
+
+.text3 {
+  text-align: justify;
+}
+
+.box {
+  background-color: #666;
+  width: 100px;
+  padding: 10px 0;
+  margin: 20px 0;
+  border: 2px solid lightcoral;
+  /* Todo: text-align se utiliza para texto, nunca utilizar para centrar una casa porque no va funcionar */
+  text-align: center;
+  /* Todo: Propiedades que permiten centrar la caja */
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Todo: Para que el text-align: center funcione en un link se debe aplicar un  display: block de lo contrario no funcionara. */
+.link {
+  color: #fff;
+  background-color: #666;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/*Todo: para centrar una imagen debemos aplicar  display: block porque ellas en su defecto son inline-block */
+.img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Todo: text-align: center podemos centrar una imagen dentro de un contenedor siempre y cuando no tenga un display:block */
+.img-container {
+  text-align: center;
+}

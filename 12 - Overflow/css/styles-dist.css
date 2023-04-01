@@ -1,0 +1,106 @@
+/* 
+    Decimos que un contenido se desborda cuando la caja es más pequeña que el contenedor
+    Overflow:
+        Es la propiedad que controla qué debe hacer la caja cuando su contenido se desborda del contenedor.
+        Es un shorthand que engloba overflow-x y overflow-y
+        Tiene cuatro posibles valores:
+            visible -> Es el valor por defecto.
+            hidden -> El contenido que se desborde no se verá. Si aplicamos esta propiedad en un solo eje, el otro se pondrá automáticamente en el valor scroll.
+            scroll -> Aparecerán barras de scroll en el eje asignado (x, y o ambos)
+            auto -> Aparecerán barras de scroll en el caso de que hicieran falta.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+  color: #fff;
+  margin: 0;
+}
+
+.box1 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background-color: lightcyan;
+  color: black;
+  width: 300px;
+  height: 300px;
+  overflow-y: hidden;
+}
+
+.box2 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background-color: lightcyan;
+  color: black;
+  width: 300px;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+/* Todo: Por lo general se usa overflow-y: auto para cuando se desborde el texto en eje x o y aparezca la barra */
+.box3 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background-color: lightcyan;
+  color: black;
+  width: 300px;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.texto {
+  width: 350px;
+}
+
+/* todo: Con la propiedad (overflow-y: auto) la barra desaparece porque el contenido no se esta desbordando,pero si llegara a gregar mas texto la barra aparec  */
+.box4 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background-color: lightcyan;
+  color: black;
+  width: 300px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.box5 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background-color: lightcyan;
+  color: black;
+  width: 300px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+/* todo: Ejemplo de como aplicar overflow: hidden */
+.box6 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background-color: lightcyan;
+  color: black;
+  width: 300px;
+  height: 300px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.box6-1,
+.box6-2 {
+  padding: 15px;
+  background-color: lightcoral;
+}
+
+.text6-1,
+.text6-2 {
+  margin: 0;
+}

@@ -1,0 +1,144 @@
+/* SELECTORES */
+
+/* 
+    Selectores Simples
+        Selectores elementales
+            Selector Universal -> *
+            Selector de tipo o etiqueta -> Nombre de la etiqueta
+        Selectores de atributo
+            id -> id del elemento
+            clase -> clase del elemento
+            otros atributos
+                [atributo]->Selecciona los elementos con ese atributo
+                [atributo=valor]->Selecciona los elementos que coincidan con el atributo=valor
+                [atributo^=valor]-> Selecciona los elementos cuyo atributo comience con valor
+                [atributo*=valor]-> Selecciona los elementos cuyo atributo contenga valor
+                [atributo$=valor]-> Selecciona los elementos cuyo atributo termine con valor
+                [atributo|=valor]-> Selecciona los elementos cuyo atributo comience con valor o valor-
+                
+    Selectores Compuestos
+        Selectores Agrupados -> Se agrupan los selectores separados por comas y se escribe el estilo una sola vez 
+        Selectores Combinadores
+            Selector descendente -> Selecciona un elemento dentro de otro
+            Selector de hermano siguiente + -> Selecciona al hermano siguiente adyacente 
+            Selector de hermanos siguientes ~ -> Selecciona  a todos los hermanos siguientes
+            Selector de hijo directo > -> Selecciona SOLO los hijos directos
+*/
+
+/* TODO: Selectores Simples*/
+
+/* Selector Universal -> * */
+* {
+  background: rgb(13, 177, 35);
+}
+
+/* Selector de tipo o etiqueta -> Nombre de la etiqueta */
+
+h1 {
+  background-color: rgb(55, 25, 187);
+}
+
+/*TODO: Selectores de atributo */
+
+/* id -> id del elemento 
+!No es reconmendable dar estilos con id , debido a que los id son identificadores y al ser identificadores solo puede haber uno(No se recomienda dar stilos nunca con un id)
+*/
+#tittle {
+  background-color: rgb(226, 123, 27);
+}
+
+/* clase -> clase del elemento */
+.text {
+  background-color: crimson;
+}
+
+/* TODO: otros atributos */
+/* [atributo]->Selecciona los elementos con ese atributo */
+[href] {
+  background-color: cornflowerblue;
+}
+
+/* [atributo=valor]->Selecciona los elementos que coincidan con el atributo=valor 
+Podemos observar que con este atributo solo se aplica el estilo al elemento que se selecciona (el enlace de gooogle)*/
+[href = "https://google.com"]
+{
+  background-color: darkgoldenrod;
+}
+
+/* [atributo^=valor]-> Selecciona los elementos cuyo atributo comience con valor (en este caso el valor es color, ir a index y observar  
+<a href="color-google">Enlace a google</a>
+<a href="free-code-cam">Enlace a freecodecam</a>
+<a href="color-mozilla">Enlace a MDN</a>)  */
+[href^="color"] {
+  background-color: chartreuse;
+}
+
+/* [atributo*=valor]-> Selecciona los elementos cuyo atributo contenga valor (No importan donde este ubicado)*/
+
+[href*="codes"] {
+  background-color: rgb(238, 31, 193);
+}
+
+/* [atributo$=valor]-> Selecciona los elementos cuyo atributo termine con valor */
+[href$="final"] {
+  background-color: darkolivegreen;
+}
+
+/* [atributo|=valor]-> Selecciona los elementos cuyo atributo comience con valor o valor-(ver 1:08:52)
+Investigar porque selecciona todo el cuerpo de la pagina
+[lang|="en"] {
+  background-color: magenta;
+}
+*/
+
+/* TODO Selectores Compuestos */
+
+/* Selectores Agrupados -> Se agrupan los selectores separados por comas y se escribe el estilo una sola vez  */
+
+.text1,
+.text2,
+.text3 {
+  background-color: steelblue;
+}
+
+/*TODO Selectores Combinadores */
+
+/* Selector descendente -> Selecciona un elemento dentro de otro */
+
+/* !No es recomedable utilizar esta secuencia de selector descendente
+ !header main footer div .tittle2 {
+  ! background-color: teal;
+  !}
+
+ */
+
+div .tittle2 {
+  background-color: teal;
+}
+
+/* Selector de hermano siguiente + -> Selecciona al hermano siguiente adyacente
+Nota: Observar que solo se aplica el estilo a text4 , esto debido a que tienen el mismo nivel(div es el padre y el resto de etiquetas que estan dentro de este son los hijo),
+si hicieramos esto(ver Ejemplo) no se aplicaria, ya que text5 no se encuentra despues de
+tittle3
+
+ejemplo
+.tittle3 + .text5 {
+  background-color: tomato;
+}
+  */
+
+.tittle3 + .text4 {
+  background-color: tomato;
+}
+
+/* Selector de hermanos siguientes ~ -> Selecciona  a todos los hermanos siguientes */
+
+.tittle4 ~ p {
+  background-color: tomato;
+}
+
+/* Selector de hijo directo > -> Selecciona SOLO los hijos directos */
+
+.container > p {
+  background-color: blueviolet;
+}

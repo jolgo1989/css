@@ -1,0 +1,197 @@
+/*
+    La propiedad position nos permite posicionar los elementos. Hay algunos conceptos que debéis conocer para entender position.
+    
+    Flujo de renderizado -> Por norma general los elementos se dibujan de izquierda a derecha y de arriba abajo. El punto 0,0 de los elementos, por norma general, es la esquina superior izquierda.
+    Espacio reservado -> Es el espacio que tiene un elemento asignado en el navegador.
+    Elemento posicionado -> Esto significa que el elemento tiene la propiedad position con un valor distinto de "static", que es el valor que tiene esta propiedad por defecto.
+    Stackin context -> Contexto de apilamiento. Es el orden en el que se apilarán las cajas que se superponen, dentro del mismo contenedor.
+    Al posicionar un elemento se habilitan 5 propiedades que podemos utilizar para mover los elementos en los 3 ejes.
+      top -> El elemento se moverá desde la parte superior la distancia que le hayamos indicado.
+      right -> El elemento se moverá desde la parte derecha la distancia que le hayamos indicado.
+      bottom -> El elemento se moverá desde la parte inferior la distancia que le hayamos indicado.
+      left -> El elemento se moverá desde la parte izquierda la distancia que le hayamos indicado.
+      z-index -> Nos permite mover el elemento en el contexto de apilamiento (eje z)
+      NOTA: Si a un elemento le declaramos la propiedad top y/o left, las propiedades bottom y/o right no funcionarán. 
+    Los posibles valores que le podemos dar a position son.
+      Static -> Es el valor que tiene por defecto un elemento, con este valor el elemento NO ESTÁ POSICIONADO y por lo cual no podremos moverlo
+      Relative -> El elemento mantendrá su posición y medidas en el flujo de renderizado y mantendrá su espacio reservado. Si lo movemos lo hará usando su posición en el html como punto de referencia.
+      Absolute -> El elemento perderá sus medidas y su espacio reservado. Si lo movemos usará el elemento posicionado contenedor como referencia. Si no tiene ninguno, usará el elemento html de referencia.
+      Fixed -> El elemento perderá sus medidas y su espacio reservado.
+      Si lo movemos usará el elemento html de referencia, y además se quedará fijo en esa posición aunque hagamos scroll.
+      Sticky -> Es una mezcla de position relative y "fixed".
+      Con este tipo de posicionamiento los valores top, left, bottom y right no sirven para mover el elemento, si no para indicarle en qué punto pasará a tener un comportamiento de posicionamiento similar a fixed, hasta llegar a ese punto se comportará como si no tuviera posicionamiento, aunque sí contará como posicionado si necesitáramos colocar otro elemento respecto a él (absolute)
+    z-index: Es la propiedad que nos permite ordenar los elementos superpuestos para controlar cual se coloca por delante y cual por detrás.
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #333;
+  color: #fff;
+  /* padding-top: 50px; */
+}
+/* Todo: puedes borrar .Position-fixed y habilitar el padding en el body para que observes el estilo */
+.Position-fixed {
+  padding-top: 50px;
+}
+
+/* Relative -> El elemento mantendrá su posición y medidas en el flujo de renderizado y mantendrá su espacio reservado. Si lo movemos lo hará usando su posición en el html como punto de referencia. */
+
+.box1 {
+  width: 100px;
+  height: 100px;
+}
+
+.box2 {
+  background-color: lightcoral;
+  position: relative;
+  border-radius: 50px;
+  top: 100px;
+  left: 100px;
+}
+
+.box3 {
+  background-color: lightgreen;
+}
+
+/* Absolute -> El elemento perderá sus medidas y su espacio reservado. Si lo movemos usará el elemento posicionado contenedor como referencia. Si no tiene ninguno, usará el elemento html de referencia. */
+
+.box4 {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+}
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: peru;
+  position: relative;
+  margin-left: 100px;
+}
+
+.box5 {
+  background-color: lightcoral;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.box6 {
+  background-color: lightgreen;
+  position: absolute;
+  left: 400px;
+  top: 1000px;
+}
+
+/* !No utilizar display:block, inline  o inline-block cuando utilices position:absolute , esta te permite libremente acomodar los estilos */
+.link1 {
+  position: absolute;
+  background-color: lime;
+  width: 200px;
+  top: 1000px;
+}
+
+.link2 {
+  position: absolute;
+  background-color: rgb(228, 13, 145);
+  width: 200px;
+  top: 900px;
+  left: 50px;
+}
+
+/* Fixed -> El elemento perderá sus medidas y su espacio reservado.Si lo movemos usará el elemento html de referencia, y además se quedará fijo en esa posición aunque hagamos scroll. */
+/* !la propiedad Fixed a dia de hoy no suele utilizarse tanto, la que suele utilizarse mas a menudo es la propiedad Sticky, pero si se quiere dar soporte a navegadores antiguos fixed es el ideal ya que Sticky no lo soporta.Nota: tener encuenta que  position: fixed el elemento en que se posiciona siempre es sobre el HTML, da igual si se esta dentro de un elemento con positio:relative o absolute, siempre se va a posicionar sobre el html. */
+.header1 {
+  text-align: center;
+  padding: 25px 0;
+  background-color: lightskyblue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+/* 
+  Sticky -> Es una mezcla de position relative y "fixed".
+      Con este tipo de posicionamiento los valores top, left, bottom y right no sirven para mover el elemento, si no para indicarle en qué punto pasará a tener un comportamiento de posicionamiento similar a fixed, hasta llegar a ese punto se comportará como si no tuviera posicionamiento, aunque sí contará como posicionado si necesitáramos colocar otro elemento respecto a él (absolute)*/
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* Se puede observar que con el  position: sticky y top: 0 el menu se queda fijo una vez detecte que header esta a 0 pixeles ver video:4:56:20
+ position: sticky recorre el elemento que lo sostiene, en este caso es el header2 
+ !Nunca utilizar  overflow: hidden porque no se aplica la propiedad sticky, para que se aplique se debe utilizar  overflow: visible */
+.header2 {
+  text-align: center;
+  background-color: lightskyblue;
+  /* position: sticky;
+  top: 0; */
+  height: 400px;
+  overflow: visible;
+  /* height: 200px; */
+}
+
+.menu {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+/* article {
+  outline: 3px solid red;
+} */
+
+/* .article-title {
+  position: sticky;
+  top: 0px;
+  background-color: #333;
+  margin: 0;
+} */
+
+/* z-index: Es la propiedad que nos permite ordenar los elementos superpuestos para controlar cual se coloca por delante y cual por detrás. */
+
+/* !Como el container1 es el padre de box8 nunca se va a posecionar delante del hijo , lo que se puede hacer es posesionar al hijo detras del padre, por lo tanto la propiedad se le debe dar al hijo(propiedad asignada) ha! nunca colocar un valor z-index al padre porque se rompe*/
+.container1 {
+  width: 200px;
+  height: 200px;
+  background-color: #555;
+  position: relative;
+  /* z-index: 0; */
+}
+
+.box7 {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  color: #333;
+}
+
+.box8 {
+  background-color: lightcoral;
+  position: relative;
+  left: 180px;
+  z-index: -1; /*!propiedad asignada */
+}
+
+.box8-2 {
+  background-color: aquamarine;
+  position: relative;
+  left: 180px;
+  z-index: -2;
+  top: -25px;
+  padding-top: 50px;
+}
+/* todo: para que box9 se posicione hacia delante de box10 utilizamos z-index:1(No tulizar z-index:auto), esto con el fin de modificar el orden de apilamiento, sino aplicamos el z-index prevalecera el orden del html(box10)  */
+.box9 {
+  background-color: lightgreen;
+  top: 50px;
+  position: relative;
+  z-index: 1; /*Se puede utilizar cualquier numero y siempre prevalecera el numero mayor para el orden de aplilamiento*/
+}
+
+.box10 {
+  background-color: lightseagreen;
+  position: relative;
+}
